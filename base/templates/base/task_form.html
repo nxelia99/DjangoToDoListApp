@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Form</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+{% extends 'base/main.html' %}
+{% block content %}
+    <div class="header-bar">
+        <a href="{% url 'tasks' %}">&#8592; Back</a>
+    </div>
+
+
+    <h1>Create a Task</h1>
+
+   <div class="card-body">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="button" type="submit" value="Submit">
+        </form>
+    </div>
+    {% endblock content %}
+
+</body>
+</html>
